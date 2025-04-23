@@ -1,0 +1,103 @@
+<!-- popup.html -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Generuj PDF</title>
+    <style>
+        body {
+            width: 300px;
+            font-family: Arial, sans-serif;
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        #generateBtn {
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        #options {
+            margin-bottom: 15px;
+            text-align: left;
+            font-size: 12px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+
+            #options legend {
+                font-weight: bold;
+                margin-bottom: 8px;
+                padding: 0 5px;
+                font-size: 13px;
+            }
+
+            #options label {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                margin-bottom: 8px;
+                padding: 3px;
+            }
+
+            #options input[type="radio"]:checked + span {
+                font-weight: bold;
+                color: #0056b3;
+            }
+
+            #options input[type="checkbox"],
+            #options input[type="radio"] {
+                margin-right: 8px;
+            }
+
+        #scrollOptionLabel {
+            margin-bottom: 10px;
+            padding-top: 5px;
+            border-top: 1px solid #eee;
+        }
+
+        #status {
+            margin-top: 10px;
+            font-size: 12px;
+            min-height: 15px;
+            text-align: center;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <button id="generateBtn">Generuj PDF</button>
+    <div id="options">
+        <fieldset style="border:none; padding: 0; margin: 0;">
+            <legend>Wybierz jakość obrazu:</legend>
+            <label>
+                <input type="radio" name="quality" value="default" id="qualityDefault" checked>
+                <span>Domyślna (JPEG, dobra jakość)</span>
+            </label>
+            <label>
+                <input type="radio" name="quality" value="high" id="qualityHigh">
+                <span>Wysoka (PNG, najlepsza jakość)</span>
+            </label>
+            <label>
+                <input type="radio" name="quality" value="economy" id="qualityEconomy">
+                <span>Oszczędna (JPEG, mały plik)</span>
+            </label>
+        </fieldset>
+        <label id="scrollOptionLabel">
+            <input type="checkbox" id="scrollPage">
+            Przewiń i przechwyć (dla bardziej złożonych stron – wolniejsza opcja)
+        </label>
+    </div>
+    <div id="status"></div>
+
+    <!-- Usunięto html2canvas z popup.html; będzie wstrzykiwany dynamicznie -->
+    <script src="libs/jspdf.umd.min.js"></script>
+    <script src="font.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>
+
